@@ -52,18 +52,18 @@ func runePos(p int, str []byte) int {
 	return utf8.RuneCount(str[:p])
 }
 
-func combineLineMatch(src, dst LineMatch) LineMatch {
-	for k, v := range src {
-		if g, ok := dst[k]; ok {
-			if g == 0 {
-				dst[k] = v
-			}
-		} else {
-			dst[k] = v
-		}
-	}
-	return dst
-}
+// func combineLineMatch(src, dst LineMatch) LineMatch {
+// 	for k, v := range src {
+// 		if g, ok := dst[k]; ok {
+// 			if g == 0 {
+// 				dst[k] = v
+// 			}
+// 		} else {
+// 			dst[k] = v
+// 		}
+// 	}
+// 	return dst
+// }
 
 // A State represents the region at the end of a line
 type State *region
@@ -298,7 +298,7 @@ func (h *Highlighter) highlightEmptyRegion(highlights LineMatch, start int, canM
 
 // HighlightString syntax highlights a string
 // Use this function for simple syntax highlighting and use the other functions for
-// more advanced syntax highlighting. They are optimized for quick rehighlighting of the same
+// more advanced syntax highlighting. They are optimized for quick rehighlight of the same
 // text with minor changes made
 func (h *Highlighter) HighlightString(input string) []LineMatch {
 	lines := strings.Split(input, "\n")
@@ -318,7 +318,7 @@ func (h *Highlighter) HighlightString(input string) []LineMatch {
 	return lineMatches
 }
 
-// Main entry functions to hightliting
+// Main entry functions to hightlithing
 
 const LineMax int = 50000
 

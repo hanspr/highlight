@@ -124,7 +124,7 @@ func ParseFtDetect(file *File) (r [2]*regexp.Regexp, err error) {
 	}
 
 	if loaded == 0 {
-		return r, errors.New("No detect regexes found")
+		return r, errors.New("no detect regexes found")
 	}
 
 	return r, err
@@ -278,7 +278,7 @@ func parseRules(input []interface{}, curRegion *region) (ru *rules, err error) {
 				}
 				ru.regions = append(ru.regions, region)
 			default:
-				return nil, fmt.Errorf("Bad type %T", object)
+				return nil, fmt.Errorf("bad type %T", object)
 			}
 		}
 	}
